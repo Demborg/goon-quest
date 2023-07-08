@@ -16,13 +16,21 @@ func _ready():
 		goons.append(goon)
 		add_child(goon)
 		
+func _kill(goon):
+	var blood = blood_scene.instance()
+	blood.pos = goon.pos
+	remove_child(goon)
+	goons.erase(goon)
+	add_child(blood)
+		
 func _combat():
 	for goon in goons:
 		if goon.pos == hero.pos:
-			var blood = blood_scene.instance()
-			blood.pos = goon.pos
-			remove_child(goon)
-			add_child(blood)
+			_kill(goon)
+		for other in goons:
+			if (goon != other) and (goon.pos == other.pos):
+				_kill(goon)
+			
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
