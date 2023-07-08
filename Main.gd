@@ -6,6 +6,7 @@ export var blood_scene: PackedScene
 
 var goons = []
 var hero 
+var click = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +32,33 @@ func _combat():
 			if (goon != other) and (goon.pos == other.pos):
 				_kill(goon)
 			
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.pressed:
+			click = event.position
+		elif click:
+			var diff = click - event.position
+			
+			if diff.length() > 200:
+				if abs(diff.x) > 2 * abs(diff.y):
+					hero.move()
+					if diff.x > 0:
+						for goon in goons:
+							goon.move_left()
+					else: 
+						for goon in goons:
+							goon.move_right()
+					_combat()
+				elif abs(diff.y) > 2 * abs(diff.x):
+					hero.move()
+					if diff.y > 0:
+						for goon in goons:
+							goon.move_up()
+					else: 
+						for goon in goons:
+							goon.move_down()
+					_combat()
+			click = Vector2.ZERO
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
