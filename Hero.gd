@@ -5,6 +5,7 @@ const OFFSET = Vector2(95, 216)
 var pos = Vector2(3, 7)
 
 func move():
+	$StepPlayer.play()
 	var move = randi() % 3
 	if move == 0:
 		pos.x = clamp(pos.x + 1, 0, 7)
