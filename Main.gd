@@ -10,11 +10,13 @@ var click = null
 var level = 10
 
 func _win():
+	$WinPlayer.play()
 	$UI/Win.show()
 	level -= 1
 	print("YOU WIN!")
 
 func _loose():
+	$LoosePlayer.play()
 	$UI/Loose.show()
 	print("YOU lOOSE!")
 	
