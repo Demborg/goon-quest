@@ -2,10 +2,6 @@ extends Sprite
 
 var pos = Vector2(randi() % 7, randi() % 7)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
 func move(dir):
 	match dir:
 		Constants.Move.RIGHT:
@@ -16,6 +12,9 @@ func move(dir):
 			pos.y = clamp(pos.y + 1, 0, 7)
 		Constants.Move.UP:
 			pos.y = clamp(pos.y - 1, 0, 7)
+		Constants.Move.ATTACK:
+			$AttackPlayer.play()
+			
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
