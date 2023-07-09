@@ -61,6 +61,7 @@ custom_styles/normal = SubResource( 1 )
 text = "ATTACK!"
 
 [node name="Win" type="ColorRect" parent="UI"]
+visible = false
 margin_left = 24.0
 margin_top = 142.0
 margin_right = 462.0
@@ -75,10 +76,10 @@ margin_bottom = 124.0
 bbcode_enabled = true
 bbcode_text = "[center][b] You win! [/b][/center]
 
-The Prince has been beeten and the Princes stays here for a while longer  "
+The Prince has been beeten and the Princess stays here for a while longer  "
 text = " You win! 
 
-The Prince has been beeten and the Princes stays here for a while longer  "
+The Prince has been beeten and the Princess stays here for a while longer  "
 
 [node name="Button" type="Button" parent="UI/Win"]
 margin_left = 119.0
@@ -88,6 +89,7 @@ margin_bottom = 420.0
 text = "Continue"
 
 [node name="Loose" type="ColorRect" parent="UI"]
+visible = false
 margin_left = 24.0
 margin_top = 142.0
 margin_right = 462.0
