@@ -1,6 +1,8 @@
 extends Sprite
 
 var pos = Vector2(3, 7)
+const MAX_HEALTH = 3
+var health = MAX_HEALTH
 
 func move():
 	$StepPlayer.play()
@@ -14,10 +16,12 @@ func move():
 			pos.y -= 1
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func take_damage():
+	$DamagePlayer.play()
+	health -= 1
+	return health <= 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = Constants.pixel_possition(pos)
-
+	$Control/ProgressBar.value = 100 * health / MAX_HEALTH

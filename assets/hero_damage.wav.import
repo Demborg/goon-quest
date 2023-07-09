@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hero_damage.wav-9780505dd263a5abc5d3ff53a67544f2.sample"
+
+[deps]
+
+source_file="res://assets/hero_damage.wav"
+dest_files=[ "res://.import/hero_damage.wav-9780505dd263a5abc5d3ff53a67544f2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

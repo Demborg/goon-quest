@@ -33,12 +33,21 @@ func _combat():
 			if (goon != other) and (goon.pos == other.pos):
 				_kill(goon)
 				
+func _attack():
+	for goon in goons:
+		if (goon.pos.x == hero.pos.x) and (hero.pos.y - goon.pos.y) == 1:
+			hero.take_damage()
+				
 func _play_turn(dir):
 	for goon in goons:
 		goon.move(dir)
-	_combat()
+	if dir == Constants.Move.ATTACK:
+		_attack()
+	else:
+		_combat()
 	hero.move()
 	_combat()
+	
 			
 func _input(event):
 	if event is InputEventMouseButton:
@@ -69,5 +78,7 @@ func _process(delta):
 		_play_turn(Constants.Move.LEFT)
 	if Input.is_action_just_pressed("ui_right"):
 		_play_turn(Constants.Move.RIGHT)
+	if Input.is_action_just_pressed("ui_accept"):
+		_play_turn(Constants.Move.ATTACK)
 			
 	
