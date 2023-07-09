@@ -29,6 +29,7 @@ stream = ExtResource( 3 )
 volume_db = -41.6
 
 [node name="SwordAnimation" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 180 )
+position = Vector2( -100, 80 )
+rotation = -0.403195
 frames = SubResource( 1 )
 script = ExtResource( 9 )

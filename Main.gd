@@ -28,7 +28,7 @@ func _reset():
 	remove_child(hero)
 	for goon in goons:
 		remove_child(goon)
-	
+	goons = []
 	
 	hero = hero_scene.instance()
 	add_child(hero)
