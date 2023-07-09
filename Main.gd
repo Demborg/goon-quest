@@ -7,21 +7,37 @@ export var blood_scene: PackedScene
 var goons = []
 var hero 
 var click = null
+var level = 10
 
 func _win():
+	$UI/Win.show()
+	level -= 1
 	print("YOU WIN!")
 
 func _loose():
+	$UI/Loose.show()
 	print("YOU lOOSE!")
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+	
+func _reset():
+	seed(level)
+	$UI/Win.hide()
+	$UI/Loose.hide()
+	
+	remove_child(hero)
+	for goon in goons:
+		remove_child(goon)
+	
+	
 	hero = hero_scene.instance()
 	add_child(hero)
-	for i in range(10):
+	for i in range(level):
 		var goon = goon_scene.instance()
 		goons.append(goon)
 		add_child(goon)
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	_reset()
 		
 func _kill(goon):
 	var blood = blood_scene.instance()
