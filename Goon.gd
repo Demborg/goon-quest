@@ -6,17 +6,16 @@ var pos = Vector2(randi() % 7, randi() % 7)
 func _ready():
 	pass # Replace with function body.
 
-func move_right():
-	pos.x = clamp(pos.x + 1, 0, 7)
-	
-func move_left():
-	pos.x = clamp(pos.x - 1, 0, 7)
-	
-func move_down():
-	pos.y = clamp(pos.y + 1, 0, 7)
-	
-func move_up():
-	pos.y = clamp(pos.y - 1, 0, 7)
+func move(dir):
+	match dir:
+		Constants.Move.RIGHT:
+			pos.x = clamp(pos.x + 1, 0, 7)
+		Constants.Move.LEFT:
+			pos.x = clamp(pos.x - 1, 0, 7)
+		Constants.Move.DOWN:
+			pos.y = clamp(pos.y + 1, 0, 7)
+		Constants.Move.UP:
+			pos.y = clamp(pos.y - 1, 0, 7)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

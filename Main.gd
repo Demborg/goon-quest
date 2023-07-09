@@ -8,6 +8,7 @@ var goons = []
 var hero 
 var click = null
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	hero = hero_scene.instance()
@@ -31,6 +32,13 @@ func _combat():
 		for other in goons:
 			if (goon != other) and (goon.pos == other.pos):
 				_kill(goon)
+				
+func _play_turn(dir):
+	for goon in goons:
+		goon.move(dir)
+	_combat()
+	hero.move()
+	_combat()
 			
 func _input(event):
 	if event is InputEventMouseButton:
@@ -41,45 +49,25 @@ func _input(event):
 			
 			if diff.length() > 200:
 				if abs(diff.x) > 2 * abs(diff.y):
-					hero.move()
 					if diff.x > 0:
-						for goon in goons:
-							goon.move_left()
+						_play_turn(Constants.Move.LEFT)
 					else: 
-						for goon in goons:
-							goon.move_right()
-					_combat()
+						_play_turn(Constants.Move.Right)
 				elif abs(diff.y) > 2 * abs(diff.x):
-					hero.move()
 					if diff.y > 0:
-						for goon in goons:
-							goon.move_up()
+						_play_turn(Constants.Move.UP)
 					else: 
-						for goon in goons:
-							goon.move_down()
-					_combat()
+						_play_turn(Constants.Move.DOWN)
 			click = Vector2.ZERO
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_up"):
-		hero.move()
-		for goon in goons:
-			goon.move_up()
-		_combat()
+		_play_turn(Constants.Move.UP)
 	if Input.is_action_just_pressed("ui_down"):
-		hero.move()
-		for goon in goons:
-			goon.move_down()
-		_combat()				
+		_play_turn(Constants.Move.DOWN)			
 	if Input.is_action_just_pressed("ui_left"):
-		hero.move()
-		for goon in goons:
-			goon.move_left()
-		_combat()
+		_play_turn(Constants.Move.LEFT)
 	if Input.is_action_just_pressed("ui_right"):
-		hero.move()
-		for goon in goons:
-			goon.move_right()
-		_combat()
+		_play_turn(Constants.Move.RIGHT)
 			
 	
