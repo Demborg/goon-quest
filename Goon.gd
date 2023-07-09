@@ -14,7 +14,7 @@ func move(dir):
 			pos.y = clamp(pos.y - 1, 0, 7)
 		Constants.Move.ATTACK:
 			$AttackPlayer.play()
-			
+			$SwordAnimation.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
