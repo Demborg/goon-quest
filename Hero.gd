@@ -14,6 +14,7 @@ func move():
 	if move == 2:
 		if pos.x in [3, 4] or pos.y > 0:
 			pos.y -= 1
+	return pos.y < 0
 
 # Called when the node enters the scene tree for the first time.
 func take_damage():

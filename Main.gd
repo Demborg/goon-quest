@@ -8,6 +8,11 @@ var goons = []
 var hero 
 var click = null
 
+func _win():
+	print("YOU WIN!")
+
+func _loose():
+	print("YOU lOOSE!")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,11 +37,14 @@ func _combat():
 		for other in goons:
 			if (goon != other) and (goon.pos == other.pos):
 				_kill(goon)
+	if not goons:
+		_loose()
 				
 func _attack():
 	for goon in goons:
 		if (goon.pos.x == hero.pos.x) and (hero.pos.y - goon.pos.y) == 1:
-			hero.take_damage()
+			if hero.take_damage():
+				_win()
 				
 func _play_turn(dir):
 	for goon in goons:
@@ -45,7 +53,8 @@ func _play_turn(dir):
 		_attack()
 	else:
 		_combat()
-	hero.move()
+	if hero.move():
+		_loose()
 	_combat()
 	
 			
@@ -82,3 +91,7 @@ func _process(delta):
 		_play_turn(Constants.Move.ATTACK)
 			
 	
+
+
+func _on_Button_pressed():
+	_play_turn(Constants.Move.ATTACK)
