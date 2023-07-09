@@ -88,7 +88,7 @@ func _input(event):
 					if diff.x > 0:
 						_play_turn(Constants.Move.LEFT)
 					else: 
-						_play_turn(Constants.Move.Right)
+						_play_turn(Constants.Move.RIGHT)
 				elif abs(diff.y) > 2 * abs(diff.x):
 					if diff.y > 0:
 						_play_turn(Constants.Move.UP)
