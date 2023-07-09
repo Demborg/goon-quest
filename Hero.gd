@@ -1,6 +1,4 @@
 extends Sprite
-const SIZE = 42
-const OFFSET = Vector2(95, 216)
 
 var pos = Vector2(3, 7)
 
@@ -21,5 +19,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = pos * SIZE + OFFSET
+	position = Constants.pixel_possition(pos)
 

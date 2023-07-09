@@ -1,6 +1,4 @@
 extends Sprite
-const SIZE = 42
-const OFFSET = Vector2(95, 216)
 
 var pos = Vector2(randi() % 7, randi() % 7)
 
@@ -22,4 +20,4 @@ func move_up():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position = pos * SIZE + OFFSET
+	position = Constants.pixel_possition(pos)
