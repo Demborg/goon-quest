@@ -106,6 +106,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_right"):
 		_play_turn(Constants.Move.RIGHT)
 	if Input.is_action_just_pressed("ui_accept"):
+		if $UI/Win.visible or $UI/Loose.visible:
+			_ready()
+			return
 		_play_turn(Constants.Move.ATTACK)
 			
 	
