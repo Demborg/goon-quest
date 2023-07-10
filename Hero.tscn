@@ -53,3 +53,10 @@ custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 66.0
 percent_visible = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -20, -40 )
+rotation = 1.5708
+scale = Vector2( 1, 0.993927 )
+color = Color( 1, 0, 0, 0.501961 )
+polygon = PoolVector2Array( -90.0002, -191.162, -0.000244141, -362.201, 89.9998, -191.162 )
