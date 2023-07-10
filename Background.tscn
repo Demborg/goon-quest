@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://Hero.tscn" type="PackedScene" id=2]
@@ -7,27 +7,7 @@
 [ext_resource path="res://Main.gd" type="Script" id=5]
 [ext_resource path="res://assets/loose.wav" type="AudioStream" id=6]
 [ext_resource path="res://assets/win.wav" type="AudioStream" id=7]
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 1, 0, 0, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 1, 0, 0, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.517647, 0.0470588, 0.0470588, 1 )
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[ext_resource path="res://Theme.tres" type="Theme" id=8]
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 5 )
@@ -55,9 +35,7 @@ margin_left = 256.309
 margin_top = 411.68
 margin_right = 345.309
 margin_bottom = 479.68
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 1 )
+theme = ExtResource( 8 )
 text = "ATTACK!"
 
 [node name="Win" type="ColorRect" parent="UI"]
@@ -71,8 +49,9 @@ color = Color( 0.466667, 0.439216, 0.439216, 1 )
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Win"]
 margin_left = 17.0
 margin_top = 44.0
-margin_right = 417.0
-margin_bottom = 124.0
+margin_right = 419.0
+margin_bottom = 344.0
+theme = ExtResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[center][b] You win! [/b][/center]
 
@@ -86,6 +65,7 @@ margin_left = 119.0
 margin_top = 358.0
 margin_right = 323.0
 margin_bottom = 420.0
+theme = ExtResource( 8 )
 text = "Continue"
 
 [node name="Loose" type="ColorRect" parent="UI"]
@@ -100,7 +80,8 @@ color = Color( 0.466667, 0.439216, 0.439216, 1 )
 margin_left = 17.0
 margin_top = 44.0
 margin_right = 417.0
-margin_bottom = 124.0
+margin_bottom = 278.0
+theme = ExtResource( 8 )
 bbcode_enabled = true
 bbcode_text = "[center][b] You loose! [/b][/center]
 
@@ -114,6 +95,7 @@ margin_left = 119.0
 margin_top = 358.0
 margin_right = 323.0
 margin_bottom = 420.0
+theme = ExtResource( 8 )
 text = "Retry"
 
 [node name="LoosePlayer" type="AudioStreamPlayer" parent="."]

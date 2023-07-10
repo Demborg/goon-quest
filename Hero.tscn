@@ -1,24 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Hero.gd" type="Script" id=1]
 [ext_resource path="res://assets/prince.png" type="Texture" id=2]
 [ext_resource path="res://assets/step.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/hero_damage.wav" type="AudioStream" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 0, 0, 1 )
-border_width_left = 10
-border_width_top = 10
-border_width_bottom = 10
-border_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.6, 0.6, 0.6, 0 )
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color( 0, 0, 0, 1 )
+[ext_resource path="res://Theme.tres" type="Theme" id=5]
 
 [node name="Hero" type="Sprite"]
 position = Vector2( 262, 548 )
@@ -49,8 +35,7 @@ margin_left = -18.68
 margin_top = 250.0
 margin_right = 190.0
 margin_bottom = 340.0
-custom_styles/fg = SubResource( 1 )
-custom_styles/bg = SubResource( 2 )
+theme = ExtResource( 5 )
 value = 66.0
 percent_visible = false
 
