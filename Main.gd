@@ -31,6 +31,7 @@ func _reset():
 	goons = []
 	
 	hero = hero_scene.instance()
+	hero.connect("win", self, "_loose")
 	add_child(hero)
 	for i in range(level):
 		var goon = goon_scene.instance()
@@ -71,8 +72,10 @@ func _play_turn(dir):
 		_attack()
 	else:
 		_combat()
-	if hero.move():
-		_loose()
+	for pos in hero.move():
+		for goon in goons:
+			if goon.pos == pos:
+				_kill(goon)
 	_combat()
 	
 			

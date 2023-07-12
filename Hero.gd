@@ -1,5 +1,7 @@
 extends Sprite
 
+signal win
+
 var pos = Vector2(3, 7)
 const MAX_HEALTH = 3
 var health = MAX_HEALTH
@@ -18,19 +20,26 @@ func _compute_move():
 
 func move():
 	$StepPlayer.play()
+	var kill_zone = []
 	match next_move:
 		Constants.Move.RIGHT:
 			pos.x = clamp(pos.x + 1, 0, 7)
+			kill_zone = [pos]
 		Constants.Move.LEFT:
 			pos.x = clamp(pos.x - 1, 0, 7)
+			kill_zone = [pos]
 		Constants.Move.UP:
 			pos.y -= 1
+			kill_zone = [pos]
 		Constants.Move.ATTACK:
 			$SwordAnimation.play()
 			$Attack.play()
+			kill_zone = [pos + Vector2(1, -1), pos + Vector2(0, -1), pos + Vector2(-1, -1)]
+	if pos.y < 0:
+		emit_signal("win")
 			 
 	next_move = _compute_move()
-	return pos.y < 0
+	return kill_zone
 	
 func _ready():
 	next_move = _compute_move()
