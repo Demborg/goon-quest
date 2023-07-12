@@ -15,7 +15,14 @@ func _compute_move():
 			return Constants.Move.RIGHT
 		else:
 			return Constants.Move.LEFT
-	return [Constants.Move.LEFT, Constants.Move.UP, Constants.Move.RIGHT, Constants.Move.ATTACK][randi() % 4]
+	return [
+		Constants.Move.LEFT,
+		Constants.Move.UP,
+		Constants.Move.UP,
+		Constants.Move.RIGHT,
+		Constants.Move.ATTACK,
+		Constants.Move.ATTACK
+	][randi() % 6]
 		
 
 func move():
