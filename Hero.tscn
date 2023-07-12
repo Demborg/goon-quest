@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Hero.gd" type="Script" id=1]
 [ext_resource path="res://assets/prince.png" type="Texture" id=2]
 [ext_resource path="res://assets/step.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/hero_damage.wav" type="AudioStream" id=4]
 [ext_resource path="res://Theme.tres" type="Theme" id=5]
+[ext_resource path="res://SwordAnimation.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/hero_attack.wav" type="AudioStream" id=7]
 
 [node name="Hero" type="Sprite"]
 position = Vector2( 262, 548 )
@@ -20,6 +22,9 @@ volume_db = -8.667
 
 [node name="DamagePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="Attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="Control" type="Control" parent="."]
 anchor_top = 1.0
@@ -45,3 +50,12 @@ rotation = 1.5708
 scale = Vector2( 1, 0.993927 )
 color = Color( 1, 0, 0, 0.501961 )
 polygon = PoolVector2Array( -90.0002, -191.162, -0.000244141, -362.201, 89.9998, -191.162 )
+
+[node name="SwordAnimation" parent="." instance=ExtResource( 6 )]
+position = Vector2( -37.0039, -110.563 )
+rotation = 3.14159
+scale = Vector2( 2.71927, 1.79401 )
+
+[node name="AttackBox" type="Polygon2D" parent="."]
+color = Color( 1, 0, 0, 0.501961 )
+polygon = PoolVector2Array( -610, -650, -610, -290, 570, -290, 570, -650 )

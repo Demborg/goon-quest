@@ -1,0 +1,22 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/slice0.png" type="Texture" id=1]
+[ext_resource path="res://assets/slice3.png" type="Texture" id=2]
+[ext_resource path="res://assets/sliceEmpty.png" type="Texture" id=3]
+[ext_resource path="res://SwordAnimation.gd" type="Script" id=4]
+[ext_resource path="res://assets/slice1.png" type="Texture" id=5]
+[ext_resource path="res://assets/slice2.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 10.0
+} ]
+
+[node name="SwordAnimation" type="AnimatedSprite"]
+position = Vector2( -100, 80 )
+rotation = -0.403195
+frames = SubResource( 1 )
+script = ExtResource( 4 )

@@ -1,22 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Goon.gd" type="Script" id=1]
 [ext_resource path="res://assets/goon.png" type="Texture" id=2]
 [ext_resource path="res://assets/slice.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/slice3.png" type="Texture" id=4]
-[ext_resource path="res://assets/slice0.png" type="Texture" id=5]
-[ext_resource path="res://assets/slice1.png" type="Texture" id=6]
-[ext_resource path="res://assets/slice2.png" type="Texture" id=7]
-[ext_resource path="res://assets/sliceEmpty.png" type="Texture" id=8]
-[ext_resource path="res://SwordAnimation.gd" type="Script" id=9]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
-"speed": 10.0
-} ]
+[ext_resource path="res://SwordAnimation.tscn" type="PackedScene" id=4]
 
 [node name="Goon" type="Sprite"]
 scale = Vector2( 0.1, 0.1 )
@@ -28,8 +15,4 @@ script = ExtResource( 1 )
 stream = ExtResource( 3 )
 volume_db = -41.6
 
-[node name="SwordAnimation" type="AnimatedSprite" parent="."]
-position = Vector2( -100, 80 )
-rotation = -0.403195
-frames = SubResource( 1 )
-script = ExtResource( 9 )
+[node name="SwordAnimation" parent="." instance=ExtResource( 4 )]

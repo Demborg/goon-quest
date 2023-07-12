@@ -13,7 +13,7 @@ func _compute_move():
 			return Constants.Move.RIGHT
 		else:
 			return Constants.Move.LEFT
-	return [Constants.Move.LEFT, Constants.Move.UP, Constants.Move.RIGHT][randi() % 3]
+	return [Constants.Move.LEFT, Constants.Move.UP, Constants.Move.RIGHT, Constants.Move.ATTACK][randi() % 4]
 		
 
 func move():
@@ -25,6 +25,10 @@ func move():
 			pos.x = clamp(pos.x - 1, 0, 7)
 		Constants.Move.UP:
 			pos.y -= 1
+		Constants.Move.ATTACK:
+			$SwordAnimation.play()
+			$Attack.play()
+			 
 	next_move = _compute_move()
 	return pos.y < 0
 	
@@ -39,6 +43,8 @@ func take_damage():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$Polygon2D.show()
+	$AttackBox.hide()
 	match next_move:
 		Constants.Move.UP:
 			$Polygon2D.rotation = 0
@@ -46,5 +52,8 @@ func _process(delta):
 			$Polygon2D.rotation = -PI / 2
 		Constants.Move.RIGHT:
 			$Polygon2D.rotation = PI / 2
+		Constants.Move.ATTACK:
+			$Polygon2D.hide()
+			$AttackBox.show()
 	position = Constants.pixel_possition(pos)
 	$Control/ProgressBar.value = 100 * health / MAX_HEALTH
