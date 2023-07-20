@@ -10,7 +10,6 @@
 
 [node name="Hero" type="Sprite"]
 position = Vector2( 262, 548 )
-scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
 
@@ -36,26 +35,27 @@ margin_bottom = -507.2
 
 [node name="ProgressBar" type="ProgressBar" parent="Control"]
 anchor_left = -6.033
-margin_left = -18.68
-margin_top = 250.0
-margin_right = 190.0
-margin_bottom = 340.0
+margin_left = -20.0
+margin_top = 463.0
+margin_right = 17.0
+margin_bottom = 471.0
 theme = ExtResource( 5 )
 value = 66.0
 percent_visible = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( -20, -40 )
 rotation = 1.5708
-scale = Vector2( 1, 0.993927 )
+scale = Vector2( 0.1, 0.099 )
 color = Color( 1, 0, 0, 0.501961 )
 polygon = PoolVector2Array( -90.0002, -191.162, -0.000244141, -362.201, 89.9998, -191.162 )
 
 [node name="SwordAnimation" parent="." instance=ExtResource( 6 )]
-position = Vector2( -37.0039, -110.563 )
+position = Vector2( -2, -15 )
 rotation = 3.14159
-scale = Vector2( 2.71927, 1.79401 )
+scale = Vector2( 0.272, 0.179 )
 
 [node name="AttackBox" type="Polygon2D" parent="."]
+position = Vector2( -1, 3 )
+scale = Vector2( 0.1, 0.1 )
 color = Color( 1, 0, 0, 0.501961 )
 polygon = PoolVector2Array( -610, -650, -610, -290, 570, -290, 570, -650 )

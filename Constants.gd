@@ -1,7 +1,7 @@
 extends Node
 
 const SIZE = 42
-const OFFSET = Vector2(95, 216)
+const OFFSET = Vector2(93, 215)
 
 enum Move {LEFT, RIGHT, UP, DOWN, ATTACK}
 

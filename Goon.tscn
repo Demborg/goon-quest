@@ -6,7 +6,6 @@
 [ext_resource path="res://SwordAnimation.tscn" type="PackedScene" id=4]
 
 [node name="Goon" type="Sprite"]
-scale = Vector2( 0.1, 0.1 )
 z_index = 1
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
@@ -16,3 +15,5 @@ stream = ExtResource( 3 )
 volume_db = -41.6
 
 [node name="SwordAnimation" parent="." instance=ExtResource( 4 )]
+position = Vector2( -7, 10 )
+scale = Vector2( 0.1, 0.1 )
