@@ -35,7 +35,7 @@ blood_scene = ExtResource( 4 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 240, 360 )
 frames = SubResource( 1 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="UI" type="CanvasLayer" parent="."]
