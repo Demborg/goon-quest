@@ -2,6 +2,8 @@ extends Sprite
 
 signal win
 
+export var blood_scene: PackedScene
+
 var pos = Vector2(3, 7)
 const MAX_HEALTH = 3
 var health = MAX_HEALTH
@@ -55,6 +57,10 @@ func _ready():
 func take_damage():
 	$DamagePlayer.play()
 	health -= 1
+	var blood = blood_scene.instance()
+	blood.pos = pos
+	blood.color = Color(0, 0, 1, 0.37)
+	get_parent().add_child(blood)
 	return health <= 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

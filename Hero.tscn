@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Hero.gd" type="Script" id=1]
 [ext_resource path="res://assets/prince.png" type="Texture" id=2]
@@ -7,12 +7,14 @@
 [ext_resource path="res://Theme.tres" type="Theme" id=5]
 [ext_resource path="res://SwordAnimation.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/hero_attack.wav" type="AudioStream" id=7]
+[ext_resource path="res://Blood.tscn" type="PackedScene" id=8]
 
 [node name="Hero" type="Sprite"]
 position = Vector2( 262, 548 )
 z_index = 1
 texture = ExtResource( 2 )
 script = ExtResource( 1 )
+blood_scene = ExtResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
